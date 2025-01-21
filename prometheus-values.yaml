@@ -1,0 +1,10 @@
+server:
+  nodeSelector:
+    role: monitoring
+
+  persistentVolume:
+    storageClass: gp2
+
+alertmanager:
+  persistence:
+    storageClass: gp2
