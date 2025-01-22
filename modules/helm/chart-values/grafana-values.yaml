@@ -40,6 +40,14 @@ dashboardProviders:
         editable: true
         options:
           path: /var/lib/grafana/dashboards/aws-dashboards
+      - name: "nginx-dashboards"
+        orgId: 1
+        folder: "NGINX"
+        type: file
+        disableDeletion: true
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/nginx-dashboards
 dashboards:
   grafana-dashboards-kubernetes:
     k8s-system-api-server:
@@ -64,6 +72,13 @@ dashboards:
     eks:
       url: https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/refs/heads/master/aws-eks/aws-eks.json
       token: ""
-    elb:
+    alb:
       url: https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/refs/heads/master/aws-elb/aws-elb-application-lb.json
+      token: ""
+    elb-classic:
+      url: https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/refs/heads/master/aws-elb/aws-elb-classic-lb.json
+      token: ""
+  nginx-dashboards:
+    nginx-ingress:
+      url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/refs/heads/main/deploy/grafana/dashboards/nginx.json
       token: ""
