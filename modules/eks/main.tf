@@ -35,7 +35,6 @@ module "eks" {
   }
 
 
-
   # we need to keep grafana stack on ec2 nodes because fargate can't use ebs
   eks_managed_node_groups = {
 

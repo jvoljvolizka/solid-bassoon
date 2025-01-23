@@ -5,6 +5,9 @@ persistence:
   enabled: true
   storageClassName: gp2
 
+service:
+  type: LoadBalancer
+
 datasources:
   datasources.yaml:
     apiVersion: 1
@@ -48,6 +51,14 @@ dashboardProviders:
         editable: true
         options:
           path: /var/lib/grafana/dashboards/nginx-dashboards
+      - name: "general-dashboards"
+        orgId: 1
+        folder: "General"
+        type: file
+        disableDeletion: true
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/general-dashboards
 dashboards:
   grafana-dashboards-kubernetes:
     k8s-system-api-server:
@@ -69,9 +80,6 @@ dashboards:
       url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json
       token: ""
   aws-dashboards:
-    eks:
-      url: https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/refs/heads/master/aws-eks/aws-eks.json
-      token: ""
     alb:
       url: https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/refs/heads/master/aws-elb/aws-elb-application-lb.json
       token: ""
@@ -81,4 +89,8 @@ dashboards:
   nginx-dashboards:
     nginx-ingress:
       url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/refs/heads/main/deploy/grafana/dashboards/nginx.json
+      token: ""
+  general-dashboards:
+    general-summary:
+      url: https://raw.githubusercontent.com/jvoljvolizka/solid-bassoon/refs/heads/main/modules/helm/chart-values/grafana/general-summary.json
       token: ""
