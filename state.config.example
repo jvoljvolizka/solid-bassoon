@@ -1,0 +1,4 @@
+bucket = "your-bucket" 
+key    = "your-state.tfstate"
+region = "your-region"
+profile= "Your_Profile"
