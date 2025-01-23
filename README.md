@@ -64,6 +64,13 @@ AWS alb endpoint
 kubectl get ingress worktest-nginx-ingress  -o jsonpath={.status.loadBalancer.ingress[0].hostname}  
 ```
 
+### Example
+```
+# alb load balancer example
+ab -c 100 -n 50000  -H 'Host: alb-work.test' -r http://worktest-alb-ingress-1083596062.eu-west-2.elb.amazonaws.com/
+# nginx load balancer example
+ab -c 100 -n 50000  -H 'Host: nginx-work.test' -r http://a657219ece5114b34b5cd7f16ceaa260-1963243704.eu-west-2.elb.amazonaws.com/
+```
 
 
 
