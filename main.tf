@@ -19,6 +19,7 @@ module "eks" {
 module "helm" {
   source       = "./modules/helm"
   cluster_name = module.eks.cluster_name
+  region       = var.region
 
 }
 

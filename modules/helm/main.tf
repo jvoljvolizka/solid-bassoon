@@ -49,7 +49,9 @@ resource "helm_release" "grafana" {
   chart            = "grafana"
   namespace        = "monitoring"
   create_namespace = true
-  values           = [file("${path.module}/chart-values/grafana-values.yaml")]
+  values = [templatefile("${path.module}/chart-values/grafana-values.yaml", {
+    default_region = var.region
+  })]
 
   depends_on = [helm_release.nginx-ingress-controller, helm_release.aws-alb-ingress-controller]
 

@@ -21,7 +21,7 @@ datasources:
         type: cloudwatch
         jsonData:
           authType: default
-          defaultRegion: eu-west-2
+          defaultRegion: ${default_region}
 
 dashboardProviders:
   dashboardproviders.yaml:
